@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Community Event Portal</title>
+  <style>
+    /* Internal CSS for Welcome Banner */
+    #welcomeBanner {
+      background-color: grey;
+      color: white;
+      padding: 10px;
+    }
+
+    .highlight {
+      background-color: grey;
+      font-weight: bold;
+    }
+
+    .event-image {
+      border: 2px solid #333;
+      width: 100px;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#home">Home</a> |
+    <a href="#events">Events</a> |
+    <a href="#contact">Contact</a> |
+    <a href="help.html" target="_blank">Help</a>
+  </nav>
+
+  <!-- Main -->
+  <main>
+    <section id="home">
+      <div id="welcomeBanner">
+        Welcome, <span style="color:white; font-weight: bold;">Special Offer: 50% off registration!</span>
+      </div>
+    </section>
+
+    <section id="events">
+      <h2 class="highlight">Community Events Gallery</h2>
+      <table>
+        <caption>Snapshots from Past Events</caption>
+        <tr>
+          <td><img src="image/event1.jpg" alt="Event 1" title="Music Night" class="event-image"></td>
+          <td><img src="image/event2.jpg" alt="Event 2" title="Food Fest" class="event-image"></td>
+          <td><img src="image/event3.jpg" alt="Event 3" title="Art Fair" class="event-image"></td>
+        </tr>
+        <tr>
+          <td><img src="image/event4.jpg" alt="Event 4" title="Tech Talk" class="event-image"></td>
+          <td><img src="image/event5.jpg" alt="Event 5" title="Yoga Day" class="event-image"></td>
+          <td><img src="image/event6.jpg" alt="Event 6" title="Book Reading" class="event-image"></td>
+        </tr>
+      </table>
+
+      <h3>Register for an Event</h3>
+      <form id="registrationForm" onsubmit="return showConfirmation()">
+        <input type="text" name="name" placeholder="Your Name" required autofocus><br>
+        <input type="email" name="email" placeholder="Email" required><br>
+        <input type="date" name="eventDate" required><br>
+
+        <select id="eventType" name="eventType" required onchange="savePreference(); showFee(this)">
+          <option value="">Choose Event Type</option>
+          <option value="music">Music</option>
+          <option value="food">Food</option>
+          <option value="tech">Tech</option>
+        </select><br>
+
+        <input type="tel" id="phone" placeholder="Phone Number" onblur="validatePhone()" required><br>
+        <textarea id="message" placeholder="Any message..." onkeyup="countChars()" required></textarea>
+        <p>Characters: <span id="charCount">0</span></p>
+        <output id="confirmationMsg"></output><br>
+        <button type="submit" onclick="submitForm()">Submit</button>
+        <button type="button" onclick="clearPreferences()">Clear Preferences</button>
+      </form>
+    </section>
+
+    <section id="contact">
+      <h3 class="highlight">Contact Us</h3>
+      <p>Email us at support@localevents.com</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <video width="320" controls oncanplay="videoReady()">
+      <source src="promo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p id="videoStatus"></p>
+
+    <br><br>
+    <button onclick="findLocation()">Find Nearby Events</button>
+    <p id="locationInfo"></p>
+  </footer>
+
+  <script>
+    // Save event type preference
+    function savePreference() {
+      const eventType = document.getElementById('eventType').value;
+      localStorage.setItem('preferredEvent', eventType);
+    }
+
+    // Load saved preference on page load
+    window.onload = function() {
+      const preferred = localStorage.getItem('preferredEvent');
+      if (preferred) {
+        document.getElementById('eventType').value = preferred;
+      }
+
+      window.onbeforeunload = function () {
+        return "You have unsaved changes. Are you sure you want to leave?";
+      };
+    };
+
+    function clearPreferences() {
+      localStorage.clear();
+      sessionStorage.clear();
+      alert("Preferences Cleared.");
+    }
+
+    // Validate phone number
+    function validatePhone() {
+      const phone = document.getElementById("phone").value;
+      if (!/^\d{10}$/.test(phone)) {
+        alert("Enter a valid 10-digit phone number.");
+      }
+    }
+
+    // Show selected event fee
+    function showFee(select) {
+      const value = select.value;
+      let fee = {
+        music: "$10",
+        food: "$15",
+        tech: "$20"
+      }[value] || "$0";
+      alert("Selected event fee: " + fee);
+    }
+
+    // Form submission confirmation
+    function showConfirmation() {
+      document.getElementById("confirmationMsg").value = "Thank you for registering!";
+      return false; // prevent actual form submission for demo
+    }
+
+    function submitForm() {
+      alert("Form Submitted Successfully!");
+    }
+
+    // Double click image to enlarge
+    document.querySelectorAll("img").forEach(img => {
+      img.ondblclick = () => {
+        img.style.width = "200px";
+      };
+    });
+
+    // Character count
+    function countChars() {
+      const len = document.getElementById("message").value.length;
+      document.getElementById("charCount").textContent = len;
+    }
+
+    // Geolocation
+    function findLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          pos => {
+            document.getElementById("locationInfo").textContent =
+              `Latitude: ${pos.coords.latitude}, Longitude: ${pos.coords.longitude}`;
+          },
+          err => {
+            document.getElementById("locationInfo").textContent =
+              `Error: ${err.message}`;
+          },
+          { enableHighAccuracy: true, timeout: 5000 }
+        );
+      } else {
+        alert("Geolocation not supported.");
+      }
+    }
+
+    // Video readiness
+    function videoReady() {
+      document.getElementById("videoStatus").textContent = "Video ready to play!";
+    }
+  </script>
+
+</body>
+</html>

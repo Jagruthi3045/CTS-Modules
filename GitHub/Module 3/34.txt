@@ -1,0 +1,38 @@
+project/
+├── com.greetings/
+│   ├── module-info.java
+│   └── Main.java
+└── com.utils/
+    ├── module-info.java
+    └── Util.java
+
+
+module com.utils {
+    exports com.utils;
+}
+
+
+package com.utils;
+
+public class Util {
+    public static String greet() {
+        return "Hello from utils!";
+    }
+}
+
+
+module com.greetings {
+    requires com.utils;
+}
+
+
+package com.greetings;
+
+import com.utils.Util;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println(Util.greet());
+    }
+}
+

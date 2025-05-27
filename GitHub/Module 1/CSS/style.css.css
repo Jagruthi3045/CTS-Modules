@@ -1,0 +1,148 @@
+/* =====================
+   RESET & GLOBAL STYLES
+======================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* =====================
+   HEADER STYLES
+======================== */
+#mainHeader {
+  background: linear-gradient(to right, #004d99, #66ccff);
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+nav a:link {
+  color: white;
+  text-decoration: none;
+}
+nav a:visited {
+  color: lightgray;
+}
+nav a:hover {
+  color: yellow;
+}
+nav a:active {
+  color: orange;
+}
+
+/* =====================
+   EVENT CARD STYLES
+======================== */
+.eventCard {
+  border: 1px solid #ccc;
+  background-color: rgba(100, 150, 200, 0.2);
+  padding: 15px;
+  margin: 15px;
+  border-radius: 8px;
+}
+
+/* =====================
+   TYPOGRAPHY
+======================== */
+h2 {
+  font-size: 28px;
+  color: #333;
+  margin: 20px 0;
+}
+
+h3, p {
+  color: #444;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* =====================
+   MULTI-COLUMN NEWS SECTION
+======================== */
+.news-article {
+  column-count: 2;
+  column-gap: 30px;
+  column-rule: 1px solid gray;
+  margin: 20px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+/* =====================
+   TABLE STYLES
+======================== */
+table {
+  border-collapse: collapse;
+  width: 90%;
+  margin: 20px auto;
+  background-color: #f9f9f9;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #eaeaea;
+}
+
+/* =====================
+   FORM STYLES & BOX MODEL
+======================== */
+form input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  outline: none;
+}
+
+form input[type="text"]:focus {
+  outline: 2px solid #007BFF;
+}
+
+/* Box model testing */
+.hidden {
+  visibility: hidden;
+}
+.none {
+  display: none;
+}
+
+/* =====================
+   RESPONSIVE MEDIA QUERY
+======================== */
+@media screen and (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .eventCard {
+    margin: 10px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .news-article {
+    column-count: 1;
+  }
+
+  table {
+    width: 100%;
+    font-size: 14px;
+  }
+}

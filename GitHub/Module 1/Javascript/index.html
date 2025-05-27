@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Local Community Event Portal</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- for jQuery task -->
+</head>
+<body>
+    <header>
+        <h1>Local Community Event Portal</h1>
+    </header>
+
+    <section id="filter-section">
+        <label for="categoryFilter">Filter by Category:</label>
+        <select id="categoryFilter">
+            <option value="">All</option>
+            <option value="Music">Music</option>
+            <option value="Workshop">Workshop</option>
+            <option value="Sports">Sports</option>
+        </select>
+
+        <label for="searchInput">Search by Name:</label>
+        <input type="text" id="searchInput" placeholder="Type event name..." />
+    </section>
+
+    <section id="events-section">
+        <h2>Upcoming Events</h2>
+        <div id="eventsContainer"></div>
+        <div id="loading" style="display:none;">Loading events...</div>
+    </section>
+
+    <section id="registration-section">
+        <h2>Register for an Event</h2>
+        <form id="registrationForm">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="email" name="email" placeholder="Your Email" required />
+            <select name="event" required>
+                <option value="">Select Event</option>
+            </select>
+            <button type="submit" id="registerBtn">Register</button>
+            <div id="formMessage"></div>
+        </form>
+    </section>
+
+    <script src="main.js"></script>
+</body>
+</html>

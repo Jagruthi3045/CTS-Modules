@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bootstrap 5 Complete Exercises</title>
+  <!-- Bootstrap 5 CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    /* Custom styles for fixed footer & overlay badge */
+    .fixed-footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #343a40;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      z-index: 1030;
+    }
+    .image-badge-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+    .badge-overlay {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background-color: red;
+      color: white;
+      border-radius: 50%;
+      padding: 5px 8px;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container my-5">
+
+  <!-- 1. Setting Up Bootstrap 5 -->
+  <section>
+    <h2>1. Setting Up Bootstrap 5</h2>
+    <!-- 1.1: Basic HTML with CDN is this whole page -->
+    <p>Bootstrap 5 linked via CDN in the head of this document.</p>
+
+    <!-- 1.2: Using downloaded files (simulated here with CDN) -->
+    <p>Downloaded files can be linked locally instead of CDN.</p>
+  </section>
+  <hr />
+
+  <!-- 2. Bootstrap Structure and Files -->
+  <section>
+    <h2>2. Bootstrap Structure and Files</h2>
+    <p><strong>CSS folder:</strong> Contains compiled CSS files (bootstrap.min.css, bootstrap.css).</p>
+    <p><strong>JS folder:</strong> Contains compiled JavaScript files including bootstrap.bundle.min.js with Popper included.</p>
+    <p><strong>Icons folder:</strong> Contains SVG or font files for Bootstrap Icons.</p>
+
+    <!-- 2.2: Include bootstrap.bundle.min.js -->
+    <p>JavaScript plugins included at the end of body.</p>
+  </section>
+  <hr />
+
+  <!-- 3. Fundamentals of Responsive Grid Layout -->
+  <section>
+    <h2>3. Responsive Grid Layout</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-4 border p-3 text-center">Column 1</div>
+        <div class="col-12 col-sm-6 col-md-4 border p-3 text-center">Column 2</div>
+        <div class="col-12 col-sm-6 col-md-4 border p-3 text-center">Column 3</div>
+      </div>
+    </div>
+  </section>
+  <hr />
+
+  <!-- 4. Column Layouts and Grid Classes -->
+  <section>
+    <h2>4. Column Layouts</h2>
+    <!-- 4.1 Sidebar and content -->
+    <div class="row mb-3">
+      <div class="col-md-3 bg-light p-3">Sidebar (col-md-3)</div>
+      <div class="col-md-9 bg-secondary text-white p-3">Content Area (col-md-9)</div>
+    </div>
+    <!-- 4.2 Four equal columns -->
+    <div class="row">
+      <div class="col-sm-3 border p-3 text-center">Col 1</div>
+      <div class="col-sm-3 border p-3 text-center">Col 2</div>
+      <div class="col-sm-3 border p-3 text-center">Col 3</div>
+      <div class="col-sm-3 border p-3 text-center">Col 4</div>
+    </div>
+  </section>
+  <hr />
+
+  <!-- 5. Alignment and Reordering in Grid -->
+  <section>
+    <h2>5. Alignment and Reordering</h2>
+    <!-- 5.1 Center content -->
+    <div class="d-flex justify-content-center align-items-center border" style="height:100px;">
+      Centered content
+    </div>
+
+    <!-- 5.2 Reordering columns -->
+    <div class="row mt-3">
+      <div class="col-md-6 order-md-2 bg-info p-3 text-white">Second on desktop, first on mobile</div>
+      <div class="col-md-6 order-md-1 bg-warning p-3">First on desktop, second on mobile</div>
+    </div>
+  </section>
+  <hr />
+
+  <!-- 6. Responsive Flexbox Utilities -->
+  <section>
+    <h2>6. Responsive Flexbox Utilities</h2>
+    <!-- 7.1 Navbar with d-flex, flex-column on mobile, flex-md-row on desktop -->
+    <nav class="d-flex flex-column flex-md-row bg-light p-2 mb-3 border rounded">
+      <a href="#" class="p-2 text-decoration-none flex-fill text-center">Home</a>
+      <a href="#" class="p-2 text-decoration-none flex-fill text-center">About</a>
+      <a href="#" class="p-2 text-decoration-none flex-fill text-center">Contact</a>
+    </nav>
+
+    <!-- 7.2 Card layout with justify-content-between and align-items-center -->
+    <div class="d-flex justify-content-between align-items-center border p-3 rounded">
+      <div>Left content</div>
+      <button class="btn btn-primary">Button</button>
+    </div>
+  </section>
+  <hr />
+
+  <!-- 7. Typography -->
+  <section>
+    <h2>7. Typography</h2>
+    <h1 class="display-1">Display 1</h1>
+    <p class="lead">This is a lead paragraph.</p>
+    <p class="text-muted">This text is muted.</p>
+    <p class="fw-bold">This text is bold.</p>
+    <p class="text-uppercase">Uppercase text</p>
+    <p class="text-lowercase">LOWERCASE TEXT</p>
+    <p class="text-capitalize">capitalized text</p>
+  </section>
+  <hr />
+
+  <!-- 8. Forms -->
+  <section>
+    <h2>8. Forms</h2>
+    <!-- 8.1 Registration form -->
+    <form class="mb-4" style="max-width: 400px;">
+      <div class="mb-3">
+        <label for="regName" class="form-label">Name</label>
+        <input type="text" class="form-control" id="regName" placeholder="Enter your name" required />
+      </div>
+      <div class="mb-3">
+        <label for="regEmail" class="form-label">Email</label>
+        <input type="email" class="form-control" id="regEmail" placeholder="name@example.com" required />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Gender</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="genderMale" value="male" />
+          <label class="form-check-label" for="genderMale">Male</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="female" />
+          <label class="form-check-label" for="genderFemale">Female</label>
+        </div>
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="termsCheck" />
+        <label class="form-check-label" for="termsCheck">Accept terms and conditions</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+
+    <!-- 8.2 Login form with form-floating -->
+    <form style="max-width: 400px;">
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" required />
+        <label for="floatingEmail">Email address</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required />
+        <label for="floatingPassword">Password</label>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Login</button>
+    </form>
+  </section>
+  <hr />
+
+  <!-- 9. Buttons -->
+  <section>
+    <h2>9. Buttons</h2>
+    <!-- 9.1 Contextual buttons -->
+    <div class="mb-3">
+      <button class="btn btn-primary me-1">Primary</button>
+      <button class="btn btn-secondary me-1">Secondary</button>
+      <button class="btn btn-success me-1">Success</button>
+      <button class="btn btn-danger me-1">Danger</button>
+      <button class="btn btn-warning me-1">Warning</button>
+      <button class="btn btn-info me-1">Info</button>
+      <button class="btn btn-light me-1">Light</button>
+      <button class="btn btn-dark me-1">Dark</button>
+      <button class="btn btn-outline-primary me-1">Outline Primary</button>
+      <button class="btn btn-outline-secondary me-1">Outline Secondary</button>
+      <button class="btn btn-outline-success me-1">Outline Success</button>
+    </div>
+
+    <!-- 9.2 Button groups and toggle buttons -->
+    <div class="mb-3">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary">Left</button>
+        <button type="button" class="btn btn-primary">Middle</button>
+        <button type="button" class="btn btn-primary">Right</button>
+      </div>
+    </div>
+    <div class="btn-group" role="group" aria-label="Toggle buttons">
+      <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" />
+      <label class="btn btn-outline-primary" for="btncheck1">Checkbox 1</label>
+
+      <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off" />
+      <label class="btn btn-outline-primary" for="btncheck2">Checkbox 2</label>
+    </div>
+  </section>
+  <hr />
+
+  <!-- 10. Navbars and Navigation -->
+  <section>
+    <h2>10. Navbars and Navigation</h2>
+
+    <!-- 10.1 Responsive Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">BrandLogo</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 10.2 Tabs and Pills -->
+    <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link active"
+          id="home-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#home"
+          type="button"
+          role="tab"
+          aria-controls="home"
+          aria-selected="true"
+        >
+          Home
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="profile-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#profile"
+          type="button"
+          role="tab"
+          aria-controls="profile"
+          aria-selected="false"
+        >
+          Profile
+        </button>
+      </li>
+    </ul>
+    <div class="tab-content mb-3" id="myTabContent">
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        Home tab content.
+      </div>
+      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        Profile tab content.
+      </div>
+    </div>
+
+    <ul class="nav nav-pills" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link active"
+          id="pills-home-tab"
+          data-bs-toggle="pill"
+          data-bs-target="#pills-home"
+          type="button"
+          role="tab"
+          aria-controls="pills-home"
+          aria-selected="true"
+        >
+          Home
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="pills-profile-tab"
+          data-bs-toggle="pill"
+          data-bs-target="#pills-profile"
+          type="button"
+          role="tab"
+          aria-controls="pills-profile"
+          aria-selected="false"
+        >
+          Profile
+        </button>
+      </li>
+    </ul>
+    <div class="tab-content mt-2" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        Pills Home content.
+      </div>
+      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+        Pills Profile content.
+      </div>
+    </div>
+  </section>
+  <hr />
+
+  <!-- 11. Cards and Media Objects -->
+  <section>
+    <h2>11. Cards and Media Objects</h2>
+
+    <!-- 11.1 Profile card -->
+    <div class="card" style="width: 18rem;">
+      <img src="https://via.placeholder.com/286x180" class="card-img-top" alt="Profile image" />
+      <div class="card-body">
+        <h5 class="card-title">John Doe</h5>
+        <p class="card-text">Web Developer & Designer.</p>
+        <a href="#" class="btn btn-primary">Contact</a>
+      </div>
+    </div>
+
+    <!-- 11.2 Media object -->
+    <div class="d-flex align-items-start mt-4">
+      <img src="https://via.placeholder.com/64" class="me-3 rounded" alt="Media image" />
+      <div>
+        <h5>Media heading</h5>
+        <p>This is some content beside the image to demonstrate media object layout.</p>
+      </div>
+    </div>
+  </section>
+  <hr />
+
+  <!-- 12. Images and Icons -->
+  <section>
+    <h2>12. Images and Icons</h2>
+
+    <!-- 12.1 Responsive Image -->
+    <img src="https://via.placeholder.com/600x300" alt="Responsive" class="img-fluid mb-3" />
+
+    <!-- 12.2 Circle and Thumbnail -->
+    <img src="https://via.placeholder.com/100" class="rounded-circle me-3" alt="Circle image" />
+    <img src="https://via.placeholder.com/100" class="img-thumbnail" alt="Thumbnail image" />
+
+    <!-- 12.3 Icons -->
+    <i class="bi bi-alarm" style="font-size: 2rem; color: red;"></i>
+    <i class="bi bi-battery-full" style="font-size: 2rem; color: green; margin-left: 15px;"></i>
+  </section>
+  <hr />
+
+  <!-- 13. Spacing Utilities -->
+  <section>
+    <h2>13. Spacing Utilities</h2>
+    <div class="border mb-3 p-3 m-3">
+      <p class="mb-0">Margin bottom 3, padding 3, margin 3 on this div.</p>
+    </div>
+    <div class="border p-3 mt-5 mb-1">
+      <p class="mb-0">Margin top 5, margin bottom 1, padding 3.</p>
+    </div>
+  </section>
+  <hr />
+
+  <!-- 14. Colors and Backgrounds -->
+  <section>
+    <h2>14. Colors and Backgrounds</h2>
+    <div class="bg-primary text-white p-3 mb-2">Primary background</div>
+    <div class="bg-success text-white p-3 mb-2">Success background</div>
+    <div class="bg-warning p-3 mb-2">Warning background</div>
+    <div class="bg-light p-3 mb-2 border">Light background with border</div>
+  </section>
+  <hr />
+
+  <!-- 15. Shadows and Borders -->
+  <section>
+    <h2>15. Shadows and Borders</h2>
+    <div class="shadow p-3 mb-3 bg-white rounded">Default shadow</div>
+    <div class="shadow-lg p-3 mb-3 bg-white rounded">Large shadow</div>
+    <div class="border p-3 mb-3">Border only</div>
+    <div class="border border-primary p-3 mb-3">Primary colored border</div>
+  </section>
+  <hr />
+
+  <!-- 16. Utilities for Display and Visibility -->
+  <section>
+    <h2>16. Display and Visibility Utilities</h2>
+
+    <div class="d-none d-md-block bg-info text-white p-3 mb-3">
+      Visible only on md and larger
+    </div>
+    <div class="d-block d-md-none bg-warning p-3">
+      Visible only on small and xs devices
+    </div>
+  </section>
+  <hr />
+
+  <!-- 17. Position Utilities -->
+  <section>
+    <h2>17. Position Utilities</h2>
+    <div class="position-relative border p-3 mb-3" style="height: 150px;">
+      <div class="position-absolute top-0 start-0 bg-primary text-white p-2">Top Left</div>
+      <div class="position-absolute top-0 end-0 bg-success text-white p-2">Top Right</div>
+      <div class="position-absolute bottom-0 start-0 bg-danger text-white p-2">Bottom Left</div>
+      <div class="position-absolute bottom-0 end-0 bg-warning text-dark p-2">Bottom Right</div>
+    </div>
+  </section>
+  <hr />
+
+  <!-- 18. Overflow and Z-Index -->
+  <section>
+    <h2>18. Overflow and Z-Index</h2>
+
+    <div style="position: relative; width: 300px; height: 200px; overflow: hidden; border: 1px solid #ccc;">
+      <img src="https://via.placeholder.com/400x300" alt="Overflow example" class="position-absolute" style="top: -50px; left: 0;" />
+      <div class="position-absolute top-0 start-0 bg-dark text-white p-2" style="z-index: 10;">Overlay Text (z-index 10)</div>
+      <div class="position-absolute top-50 start-50 translate-middle bg-light border p-2" style="z-index: 5;">
+        Under Text (z-index 5)
+      </div>
+    </div>
+  </section>
+  <hr />
+
+  <!-- 19. Fixed Footer -->
+  <section>
+    <h2>19. Fixed Footer</h2>
+    <p>Scroll down to see the fixed footer at the bottom of the viewport.</p>
+  </section>
+
+</div>
+
+<!-- Fixed footer -->
+<footer class="fixed-footer">
+  &copy; 2025 Your Company. All rights reserved.
+</footer>
+
+<!-- Bootstrap 5 JS Bundle CDN (Popper included) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
